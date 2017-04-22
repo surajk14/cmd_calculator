@@ -5,7 +5,16 @@
 			$res = 0;
 			$arr_size = count($arr_input);
 			while($arr_size) {
-				$res += $arr_input[$arr_size-1];
+				$find_char = strpos($arr_input[$arr_size-1], "n");
+				if($find_char){
+					$arr_sub = explode("n", $arr_input[$arr_size-1]);
+					for($i=0; $i<count($arr_sub); $i++) {
+						$res += $arr_sub[$i];
+					}
+				} else {
+					$number = $arr_input[$arr_size-1];
+					$res += $number;
+				}
 				$arr_size--;
 			}
 			echo $res."\n";
